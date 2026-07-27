@@ -1,0 +1,8 @@
+[project]
+name = "autodev_agent"
+version = "0.1.0"
+description = "Autonomous coding agent that resolves tickets against a target repo"
+requires-python = ">=3.12"
+dependencies = [
+    "langgraph>=1.0",
+]

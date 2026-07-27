@@ -1,0 +1,37 @@
+{
+  // Three roots. The agent and the app it repairs each own a venv and must stay
+  // decoupled, so each gets its own folder with its own interpreter. The repo
+  // root is here too, for the tickets that live outside both projects.
+  //
+  // VS Code resolves a file to the workspace folder with the longest matching
+  // path, so nesting is fine: target-app/app/main.py picks up target-app's
+  // interpreter, not the root's.
+  "folders": [
+    {
+      "name": "autodev (root)",
+      "path": "."
+    },
+    {
+      "name": "autodev_agent",
+      "path": "autodev_agent"
+    },
+    {
+      "name": "target-app",
+      "path": "target-app"
+    }
+  ],
+  "settings": {
+    "search.exclude": {
+      "**/.venv": true,
+      "**/__pycache__": true,
+      "**/uv.lock": true
+    },
+    "files.exclude": {
+      "**/__pycache__": true,
+      "**/*.pyc": true
+    },
+    "files.watcherExclude": {
+      "**/.venv/**": true
+    }
+  }
+}

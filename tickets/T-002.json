@@ -1,0 +1,6 @@
+{
+  "id": "T-002",
+  "type": "bug",
+  "title": "Completed todos are not filtered correctly",
+  "description": "GET /todos?completed=false returns completed todos."
+}

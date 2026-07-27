@@ -1,0 +1,5 @@
+{
+  // The root folder holds only tickets -- no Python of its own, so no
+  // interpreter is set here. autodev_agent/ and target-app/ each pin their own.
+  "python.testing.pytestEnabled": false
+}

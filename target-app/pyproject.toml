@@ -1,0 +1,23 @@
+[project]
+name = "target-app"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi[standard]>=0.140.0",
+    "sqlalchemy>=2.0",
+]
+
+[dependency-groups]
+dev = [
+    # Starlette's TestClient needs an HTTP client; it warns on plain httpx and
+    # wants httpx2. Declared here rather than leaned on via fastapi[standard].
+    "httpx2>=2.9.1",
+    "pytest>=8.0",
+]
+
+[tool.pytest.ini_options]
+# Lets `import app` resolve from the repo root without an editable install.
+pythonpath = ["."]
+testpaths = ["tests"]

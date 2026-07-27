@@ -1,0 +1,8 @@
+{
+  // ${workspaceFolder} is target-app/ here. This venv has fastapi and sqlalchemy.
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+  // What lets Pylance resolve `import app` without an editable install.
+  "python.analysis.extraPaths": ["${workspaceFolder}"],
+  "python.testing.pytestEnabled": true,
+  "python.testing.pytestArgs": ["tests"]
+}
