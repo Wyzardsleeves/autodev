@@ -1,0 +1,28 @@
+<div>
+  <section>
+    <!-- Shared by newTodo and updateTodo: `todo` is undefined on create, so the
+         value/checked expressions collapse to empty and nothing is prefilled. -->
+    <form method="post" action="{{ action }}">
+      <input
+        type="text"
+        name="title"
+        placeholder="title"
+        required
+        maxlength="100"
+        value="{{ todo.title if todo else '' }}"
+      />
+      <input
+        type="text"
+        name="description"
+        placeholder="description"
+        value="{{ todo.description or '' if todo else '' }}"
+      />
+      <label>
+        <input type="checkbox" name="completed" {% if todo and todo.completed %}checked{% endif %} />
+        Completed
+      </label>
+      <input type="submit" value="Save" />
+      <a href="/">Cancel</a>
+    </form>
+  </section>
+</div>

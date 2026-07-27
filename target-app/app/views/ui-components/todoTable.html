@@ -1,0 +1,27 @@
+<!-- Renders whatever is in `rows`; the caller decides pending vs completed. -->
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Completed</th>
+  </tr>
+  {% for todo in rows %}
+    <tr>
+      <td><a href="/edit/{{ todo.id }}">{{ todo.title }}</a></td>
+      <td>{{ todo.description or "" }}</td>
+      <td>
+        <!-- One form per box. A checkbox can't submit itself without the
+             onchange, and a plain <form> can't PUT, so this POSTs a toggle. -->
+        <form method="post" action="/toggle/{{ todo.id }}">
+          <input
+            type="checkbox"
+            {% if todo.completed %}checked{% endif %}
+            onchange="this.form.submit()"
+          />
+        </form>
+      </td>
+    </tr>
+  {% else %}
+    <tr><td colspan="3">Nothing here.</td></tr>
+  {% endfor %}
+</table>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}Task Manager{% endblock %}</title>
+  </head>
+  <body>
+    {% include "ui-components/navbar.html" %}
+
+    <main id="render-pages">
+      {% block content %}{% endblock %}
+    </main>
+
+    {% include "ui-components/footer.html" %}
+  </body>
+</html>

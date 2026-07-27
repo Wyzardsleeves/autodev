@@ -10,8 +10,8 @@ def make_todo(client, title="Buy groceries", completed=False):
     return response.json()
 
 
-def test_root_is_healthy(client):
-    assert client.get("/").json()["status"] == "healthy"
+def test_health_is_healthy(client):
+    assert client.get("/health").json()["status"] == "healthy"
 
 
 def test_create_assigns_an_id(client):

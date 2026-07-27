@@ -1,0 +1,21 @@
+{% extends "index.html" %}
+
+{% block title %}Todos{% endblock %}
+
+{% block content %}
+
+<section>
+  <h2>Todos</h2>
+
+  <p>Pending:</p>
+  {% with rows = todos | rejectattr("completed") | list %}
+    {% include "ui-components/todoTable.html" %}
+  {% endwith %}
+
+  <p>Completed:</p>
+  {% with rows = todos | selectattr("completed") | list %}
+    {% include "ui-components/todoTable.html" %}
+  {% endwith %}
+</section>
+
+{% endblock %}

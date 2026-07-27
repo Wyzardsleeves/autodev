@@ -1,0 +1,14 @@
+{% extends "index.html" %}
+
+{% block title %}New Todo{% endblock %}
+
+{% block content %}
+<div>
+  <section>
+    <h3>New Todo</h3>
+  </section>
+  <section>
+    {% include "todoForm.html" %}
+  </section>
+</div>
+{% endblock %}
