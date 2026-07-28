@@ -4,12 +4,21 @@ import argparse
 import json
 from pathlib import Path
 
-from .agent import agent_process
+# from .agent import agent_process
 
 def run(ticket: Path, repo: Path):
   # Parsed rather than echoed, so a malformed ticket fails here and not later.
   # print(json.dumps(json.loads(ticket.read_text()), indent=2))
-  agent_process(ticket, repo)
+
+  print(
+  """
+  -------------------------------------------
+  Ticketeer
+  -------------------------------------------
+  Welcome to Ticketeer! 🎟️
+  """
+  )
+  #agent_process(ticket, repo)
 
 def main(argv=None):
   parser = argparse.ArgumentParser(prog='autodev')
