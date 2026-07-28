@@ -1,7 +1,9 @@
 {
-  // ${workspaceFolder} is autodev_agent/ here. This venv has langgraph.
-  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
-  "python.analysis.extraPaths": ["${workspaceFolder}"],
+  // The venv moved up to the repo root when pyproject.toml did, so that the
+  // `autodev` console script has an installable package to point at.
+  "python.defaultInterpreterPath": "${workspaceFolder}/../.venv/bin/python",
+  // Imports are `autodev_agent.foo` now, so the root is what has to be on the path.
+  "python.analysis.extraPaths": ["${workspaceFolder}/.."],
   // The agent has no suite of its own yet; target-app owns the tests.
   "python.testing.pytestEnabled": false
 }

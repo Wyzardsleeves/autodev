@@ -1,0 +1,21 @@
+[project]
+name = "autodev_agent"
+version = "0.1.0"
+description = "Autonomous coding agent that resolves tickets against a target repo"
+requires-python = ">=3.12"
+dependencies = [
+    "langgraph>=1.0",
+]
+
+# This is what puts an `autodev` command on PATH inside the venv.
+[project.scripts]
+autodev = "autodev_agent.index:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+# Lives at the repo root next to target-app, so hatch has to be told which
+# directory is the package.
+[tool.hatch.build.targets.wheel]
+packages = ["autodev_agent"]
