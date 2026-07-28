@@ -22,3 +22,8 @@ build-backend = "hatchling.build"
 # directory is the package.
 [tool.hatch.build.targets.wheel]
 packages = ["autodev_agent"]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]

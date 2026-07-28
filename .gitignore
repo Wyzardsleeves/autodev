@@ -14,3 +14,8 @@ wheels/
 
 # Local database
 todos.db
+
+# Agent run artifacts: disposable worktrees, reports, and the memory store
+.worktrees/
+.autodev/
+.env

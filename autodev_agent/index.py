@@ -4,21 +4,29 @@ import argparse
 import json
 from pathlib import Path
 
-# from .agent import agent_process
-
-def run(ticket: Path, repo: Path):
-  # Parsed rather than echoed, so a malformed ticket fails here and not later.
-  # print(json.dumps(json.loads(ticket.read_text()), indent=2))
-
-  print(
-  """
+BANNER = """
   -------------------------------------------
   Ticketeer
   -------------------------------------------
   Welcome to Ticketeer! 🎟️
-  """
-  )
-  #agent_process(ticket, repo)
+"""
+
+
+def run(ticket: Path, repo: Path):
+  print(BANNER)
+  # Parsed rather than echoed, so a malformed ticket fails here and not later.
+  data = json.loads(ticket.read_text())
+  print(f'  ticket: {ticket}  ->  {data.get("id")} ({data.get("type")}) {data.get("title")}')
+  print(f'  repo:   {repo}\n')
+
+  # Imported here, not at module scope: `autodev --help` should not pay for
+  # langgraph's import time or need a model key.
+  from .agent import agent_process
+
+  report = agent_process(data, repo)
+  # Non-zero exit for anything but a clean resolve, so CI can gate on it.
+  raise SystemExit(0 if report['status'] == 'resolved' else 1)
+
 
 def main(argv=None):
   parser = argparse.ArgumentParser(prog='autodev')
@@ -30,6 +38,8 @@ def main(argv=None):
   run_cmd.add_argument('--repo', type=Path, default=Path('./target-app'), help='Repo to work in')
 
   args = parser.parse_args(argv)
+  if not args.repo.is_dir():
+    raise SystemExit(f'autodev: no such repo directory: {args.repo}')
   try:
     run(args.ticket, args.repo)
   except (OSError, json.JSONDecodeError) as err:

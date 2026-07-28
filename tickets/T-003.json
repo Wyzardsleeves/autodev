@@ -1,6 +1,6 @@
 {
   "id": "T-003",
   "type": "feature",
-  "title": "Completed todos are not filtered correctly",
-  "description": "GET /todos?completed=false returns completed todos."
+  "title": "Add a count endpoint for the todo list",
+  "description": "Add GET /todos/count returning {\"total\": n, \"completed\": n, \"pending\": n} so the UI can show progress without fetching every todo."
 }

@@ -32,4 +32,3 @@ app.include_router(view_routes.router)
 async def read_root():
     return {"status": "healthy", "message": "Welcome to the Task Management API"}
 
-

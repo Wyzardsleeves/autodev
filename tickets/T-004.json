@@ -1,6 +1,6 @@
 {
   "id": "T-004",
   "type": "feature",
-  "title": "Completed todos are not filtered correctly",
-  "description": "GET /todos?completed=false returns completed todos."
+  "title": "Search todos by title",
+  "description": "Add an optional q query parameter to GET /todos that narrows results to todos whose title contains the given text, case-insensitively. It should combine with the existing completed filter."
 }
