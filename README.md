@@ -7,6 +7,8 @@ Architecture and design decisions: [DESIGN.md](DESIGN.md).
 
 ## Setup
 
+[Here's](https://docs.google.com/document/d/1BuZPRsvsxsYnMR3C6s1WK7SkfGMwWdo5GmvSrdmOlkM/edit?usp=sharing) is a temporary Deepseek Key that can be used.
+
 ```bash
 uv sync
 echo 'DEEPSEEK_API_KEY=sk-...' > .env    # DEEPSEEK_KEY also accepted
@@ -33,7 +35,7 @@ Exit code is `0` only for `resolved`, so CI can gate on it.
 [RECALL]     1 relevant lesson(s)
 [UNDERSTAND] baseline suite passes
 [PLAN]       iteration 1/5
-[ACT]        editing files
+[ACT]        editing files>
              read_file(app/schemas/todo_schema.py)
              write_file(tests/test_todos.py, ...)
 [VERIFY]     28 passed in 0.66s
