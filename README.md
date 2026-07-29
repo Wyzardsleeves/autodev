@@ -3,6 +3,8 @@
 An autonomous coding agent. Give it a ticket and a repo; it plans, edits, runs
 the tests, retries on failure, and reports what it can actually prove.
 
+If I had more time I probably would have added more tickets for the application to accept and reject.
+
 Architecture and design decisions: [DESIGN.md](DESIGN.md).
 
 ## Setup
